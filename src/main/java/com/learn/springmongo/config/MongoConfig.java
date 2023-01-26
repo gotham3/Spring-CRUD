@@ -15,12 +15,13 @@ public class MongoConfig {
   @Value("${spring.data.mongodb.uri}")
   private String mongodbUri;
 
-  @Value("${mongo.password")
+  @Value("${mongo.password}")
   private String mongoPassword;
 
   @Bean
   public MongoClient mongo() throws Exception {
-    final ConnectionString connectionString = new ConnectionString(mongodbUri.replace("<password>",mongoPassword));
+    final ConnectionString connectionString =
+        new ConnectionString(mongodbUri.replace("<password>", mongoPassword));
     final MongoClientSettings mongoClientSettings =
         MongoClientSettings.builder().applyConnectionString(connectionString).build();
     return MongoClients.create(mongoClientSettings);

@@ -1,8 +1,7 @@
 package com.learn.springmongo.model;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;

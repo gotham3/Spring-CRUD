@@ -1,4 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.learn.springmongo.SpringmongoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.859 s - in com.learn.springmongo.SpringmongoApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.256 s <<< FAILURE! - in com.learn.springmongo.SpringmongoApplicationTests
+contextLoads  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'MONGO_PASSWORD' in value "${MONGO_PASSWORD}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'MONGO_PASSWORD' in value "${MONGO_PASSWORD}"
+

@@ -1,0 +1,10 @@
+com/learn/springmongo/SpringmongoApplication.class
+com/learn/springmongo/config/MongoConfig.class
+com/learn/springmongo/model/TodoTask$TodoTaskBuilder.class
+com/learn/springmongo/config/SwaggerConfig.class
+com/learn/springmongo/service/TodoService.class
+com/learn/springmongo/controller/TodoController.class
+com/learn/springmongo/model/TodoTaskList$TodoTaskListBuilder.class
+com/learn/springmongo/model/TodoTaskList.class
+com/learn/springmongo/repository/TodoRepository.class
+com/learn/springmongo/model/TodoTask.class
