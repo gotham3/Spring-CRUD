@@ -3,7 +3,9 @@ package com.learn.springmongo.service;
 import com.learn.springmongo.model.TodoTask;
 import com.learn.springmongo.model.TodoTaskList;
 import com.learn.springmongo.repository.TodoRepository;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,33 +33,21 @@ public class TodoService {
     todoRepository.deleteById(taskId);
     log.info("Item with id = {} removed from the list.", taskId);
   }
-  //
-  //    public long UpdateTodoItem(long todoId, Todo todo){
-  //
-  //        long updateTodoId=0;
-  //        //Retrieve the value you want to update
-  //        try {
-  //            Todo updatedTodo=todoRepository.findById(todoId).get();
-  //
-  //            updatedTodo.setTodoTitle(todo.getTodoTitle());
-  //            updatedTodo.setTodoDescription(todo.getTodoDescription());
-  //            updatedTodo.setTodoDate(todo.getTodoDate());
-  //            updatedTodo.setComplete(todo.isComplete());
-  //            todoRepository.save(updatedTodo);
-  //            updateTodoId=updatedTodo.getTodoId();
-  //            return updateTodoId;
-  //        } catch (Exception e) {
-  //            e.printStackTrace();
-  //        }
-  //        return updateTodoId;
-  //
-  //    }
 
-  public boolean isTodoTaskValid(String taskId) {
-    return todoRepository.findById(taskId) != null;
+  public boolean updateTodoList(TodoTask todoTask) {
+    Map<String, Object> dataMap = new HashMap<>();
+    if (todoTask.getTitle() != null) {
+      dataMap.put("title", todoTask.getTitle());
+    }
+    if (todoTask.getDescription() != null) {
+      dataMap.put("description", todoTask.getDescription());
+    }
+    dataMap.put("isComplete", todoTask.isComplete());
+
+    return todoRepository.updateById(todoTask.getTaskId(), dataMap);
   }
 
-  public long getNumberTodoItem() {
+  public long getNumberOfTasks() {
     return todoRepository.findAll().size();
   }
 }

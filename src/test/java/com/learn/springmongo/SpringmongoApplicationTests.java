@@ -1,6 +1,5 @@
 package com.learn.springmongo;
 
-
 // @SpringBootTest
 class SpringmongoApplicationTests {
 
